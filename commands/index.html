@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GEI Commands — Command Center</title>
+<meta name="description" content="GEI Command Center for safe cross-system navigation and supported actions across the Genesis Engineered Interpretations platform.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://yalltoo.com/commands/">
+<meta property="og:title" content="GEI Commands — Command Center">
+<meta property="og:description" content="A bounded command surface for navigating and launching supported GEI experiences.">
+<link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../commands/command.css">
+</head>
+<body>
+<main class="command-shell">
+  <section class="command-hero">
+    <div class="eyebrow">GEI V1.0.10 · COMMAND ORCHESTRATION</div>
+    <h1>Command Center</h1>
+    <p>Tell GEI where you want to go. Supported commands route you to the owning GEI module without taking ownership of its data, permissions, payments, research records, or credentials.</p>
+    <div class="command-bar">
+      <label for="command-input">GEI command</label>
+      <div class="command-input-row">
+        <input id="command-input" type="search" autocomplete="off" spellcheck="false" placeholder='Try “open research” or “start dam lab”' aria-describedby="command-help">
+        <button id="command-run" type="button">Execute →</button>
+      </div>
+      <div id="command-help" class="command-help">Enter to execute · Ctrl+Shift+K / Cmd+Shift+K to focus</div>
+    </div>
+    <div id="command-suggestions" class="command-suggestions" aria-live="polite"><span class="muted">Try “open research” or “start dam lab”.</span></div>
+  </section>
+
+  <section class="command-panel">
+    <div class="panel-head"><div><span class="eyebrow">SUPPORTED ACTIONS</span><h2>What can I ask GEI to do?</h2></div><span class="command-status">LAST: <strong id="command-last">Ready</strong></span></div>
+    <div class="command-grid">
+      <button type="button" data-command="open-research"><strong>Open Research</strong><small>Research, evidence & provenance</small></button>
+      <button type="button" data-command="start-dam-lab"><strong>Start Dam Simulator</strong><small>Launch the conceptual dam lab</small></button>
+      <button type="button" data-command="start-mill-lab"><strong>Start Mill Simulator</strong><small>Launch the conceptual mill lab</small></button>
+      <button type="button" data-command="view-progress"><strong>View My Progress</strong><small>Learning progress & achievements</small></button>
+      <button type="button" data-command="open-knowledge"><strong>Open Knowledge Graph</strong><small>Explore GEI relationships</small></button>
+      <button type="button" data-command="open-timeline"><strong>Show My Journey</strong><small>View local activity history</small></button>
+      <button type="button" data-command="view-portfolio"><strong>View Research Portfolio</strong><small>Research activity presentation</small></button>
+      <button type="button" data-command="explore-day-one"><strong>Explore Genesis Day One</strong><small>Open the current learning surface</small></button>
+    </div>
+  </section>
+
+  <section class="command-panel">
+    <div class="panel-head"><div><span class="eyebrow">RECENT</span><h2>Your recent commands</h2></div><button id="command-clear" class="ghost" type="button">Clear</button></div>
+    <div id="command-recent" class="recent-list"><span class="muted">No commands used yet.</span></div>
+  </section>
+
+  <section class="integrity">
+    <strong>Integrity boundary</strong>
+    <p>Command Orchestration is a navigation and action-dispatch layer. It does not authenticate users, prove identity, authorize protected access, verify payments, alter research evidence or claims, issue credentials, or create authoritative academic records. Module-owned systems remain responsible for their own state and security.</p>
+  </section>
+</main>
+<script src="../theme-v2.js"></script>
+<script src="../platform/platform-registry.js"></script>
+<script src="../platform/platform-core.js"></script>
+<script src="../platform/platform-session.js"></script>
+<script src="../timeline/timeline-engine.js"></script>
+<script src="../search/search-engine.js"></script>
+<script src="./command-data.js"></script>
+<script src="./command-engine.js"></script>
+<script src="../platform/platform-integration.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelector('.command-grid')?.addEventListener('click',e=>{const b=e.target.closest('[data-command]');if(b&&window.GEI_COMMANDS)window.GEI_COMMANDS.execute(b.dataset.command,{source:'command-grid'})});
+});
+</script>
+</body>
+</html>

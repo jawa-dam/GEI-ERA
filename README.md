@@ -17,23 +17,23 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V1.0.9
+## Current Release — V1.0.10
 
-**V1.0.9 — GEI Unified Search & Command Layer** adds one central navigation surface across the current GEI platform ecosystem.
+**V1.0.10 — GEI Command Orchestration & Cross-System Action Layer** extends the V1.0.9 search layer into a bounded command system for supported cross-system navigation and action dispatch.
 
-### V1.0.9 delivered
+### V1.0.10 delivered
 
-- New `search/` unified command surface.
-- Curated search index spanning platform, discovery, knowledge, timeline, academy, research, laboratory, profile, progress, portfolio, media, library, marketplace, and Vault surfaces.
-- Relevance scoring across IDs, titles, types, categories, and descriptions.
-- Category filters and reset controls.
-- Recent command history stored locally.
-- Enter-to-open top result.
-- Ctrl+K / Cmd+K keyboard focus shortcut.
-- Search registered in the Platform Registry.
-- Search added to unified platform navigation.
+- New `commands/` Command Center at `/commands/`.
+- Curated command registry with safe module-owned routes.
+- Command normalization and deterministic alias resolution.
+- Supported commands such as `open research`, `start dam lab`, `view my progress`, `show my journey`, and `explore day one`.
+- Recent command history stored locally and clearable.
+- Ctrl+Shift+K / Cmd+Shift+K Command Center focus shortcut.
+- Platform Registry and Integration updated to load commands globally.
+- V1.0.9 Search can dispatch recognized commands before falling back to search results.
+- Activity Timeline records command execution events.
 - Responsive and reduced-motion support.
-- Explicit boundary separating navigation/search from truth, proof, credentials, payment, identity, and protected access.
+- Explicit boundary separating orchestration from authentication, payment verification, credentials, protected access, and research authority.
 
 ## Research Integrity Principle
 
@@ -65,8 +65,9 @@ The site should feel like an interdisciplinary research institution and engineer
 - V1.0.6 — GEI Unified Knowledge & Discovery Layer
 - V1.0.7 — GEI Unified Knowledge Graph & Relationship Layer
 - V1.0.8 — GEI Unified Activity Timeline & Journey Layer
-- **V1.0.9 — GEI Unified Search & Command Layer (current)**
+- V1.0.9 — GEI Unified Search & Command Layer
+- **V1.0.10 — GEI Command Orchestration & Cross-System Action Layer (current)**
 
 ## Next
 
-**V1.0.10 — GEI Command Orchestration & Cross-System Action Layer** should extend search from navigation into carefully bounded actions, allowing supported modules to expose safe commands while preserving module ownership, access controls, payment verification, research integrity, and authoritative-state boundaries.
+**V1.0.11 — GEI Module Action Adapter Layer** should give individual modules explicit, self-owned action contracts so the command engine can invoke richer module-specific actions without taking ownership of their underlying state, permissions, payment verification, research integrity, or credentials.

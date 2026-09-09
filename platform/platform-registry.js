@@ -1,4 +1,4 @@
-/* GEI Platform Registry v1.0.9 */
+/* GEI Platform Registry v1.0.10 */
 (() => {
   'use strict';
   const modules = [
@@ -9,6 +9,7 @@
     {id:'knowledge',label:'Knowledge Graph',path:'../knowledge/',state:'implemented',description:'Relationship map connecting GEI systems and records.'},
     {id:'timeline',label:'Timeline',path:'../timeline/',state:'implemented',description:'Chronological local activity journey across GEI systems.'},
     {id:'search',label:'Search',path:'../search/',state:'implemented',description:'Unified search and command surface for GEI navigation.'},
+    {id:'commands',label:'Commands',path:'../commands/',state:'implemented',description:'Bounded cross-system command orchestration surface.'},
     {id:'academy',label:'Academy',path:'../content/',state:'foundation',description:'Current Academy content surface.'},
     {id:'research',label:'Research',path:'../research/',state:'implemented',description:'Research, evidence, sources, provenance, chronology, and review.'},
     {id:'laboratory',label:'Laboratory',path:'../laboratory/',state:'implemented',description:'Interactive conceptual GEI experiments.'},
@@ -20,5 +21,5 @@
     {id:'progress',label:'Progress',path:'../progress/',state:'implemented',description:'Unified local learning progress and achievement presentation layer.'},
     {id:'portfolio',label:'Portfolio',path:'../portfolio/',state:'implemented',description:'Research portfolio and future credential presentation layer.'}
   ];
-  window.GEI_PLATFORM_REGISTRY=Object.freeze({version:'1.0.9',modules:Object.freeze(modules.map(Object.freeze)),get(id){return modules.find(m=>m.id===id)||null},list(){return modules.slice()}});
+  window.GEI_PLATFORM_REGISTRY=Object.freeze({version:'1.0.10',modules:Object.freeze(modules.map(Object.freeze)),get(id){return modules.find(m=>m.id===id)||null},list(){return modules.slice()}});
 })();
