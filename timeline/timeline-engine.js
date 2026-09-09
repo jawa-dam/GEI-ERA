@@ -1,4 +1,4 @@
-/* GEI Unified Activity Timeline & Journey Engine v1.0.8
+/* GEI Unified Activity Timeline & Journey Engine v1.0.10
  * Records browser-local journey events for presentation and navigation only.
  * Local activity is not an authoritative academic, identity, payment, or credential record.
  */
@@ -28,16 +28,17 @@
       'gei-knowledge:change':['knowledge','Knowledge Graph activity','knowledge'],
       'gei-profile:change':['profile','Profile activity','profile'],
       'gei-progress:change':['progress','Learning progress updated','progress'],
-      'gei-portfolio:change':['portfolio','Research portfolio updated','portfolio']
+      'gei-portfolio:change':['portfolio','Research portfolio updated','portfolio'],
+      'gei-command:execute':['command',`Command: ${payload?.label||'GEI action'}`,payload?.module||'platform',`Dispatched ${payload?.commandId||'command'} from ${payload?.source||'command'}`]
     };
-    const item=map[eventType];if(item)add(item[0],item[1],item[2],eventType);
+    const item=map[eventType];if(item)add(item[0],item[1],item[2],item[3]||eventType);
   }
   function clear(){state={events:[]};persist()}
   function getState(){return snapshot()}
   function events(){return state.events.slice()}
-  window.GEI_TIMELINE=Object.freeze({version:'1.0.8',getState,events,recordNavigation,record,clear});
+  window.GEI_TIMELINE=Object.freeze({version:'1.0.10',getState,events,recordNavigation,record,clear});
   document.addEventListener('gei-platform:navigate',e=>recordNavigation(e.detail?.activeModule));
-  ['gei-session:ready','gei-session:change','gei-session:module','gei-discovery:change','gei-knowledge:change','gei-profile:change','gei-progress:change','gei-portfolio:change'].forEach(name=>document.addEventListener(name,e=>record(name,e.detail)));
+  ['gei-session:ready','gei-session:change','gei-session:module','gei-discovery:change','gei-knowledge:change','gei-profile:change','gei-progress:change','gei-portfolio:change','gei-command:execute'].forEach(name=>document.addEventListener(name,e=>record(name,e.detail)));
   function render(){
     const list=document.getElementById('timeline-list');if(!list)return;
     const items=events();
