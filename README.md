@@ -17,30 +17,27 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V1.0.1
+## Current Release — V1.0.2
 
-**V1.0.1 — Unified Navigation & Module Integration** connects the V1.0 Platform Core to the existing GEI Research, Commerce/Vault, Laboratory, Media, and Content systems through a shared module registry and responsive navigation layer.
+**V1.0.2 — Shared Identity & Session Layer** adds a persistent anonymous visitor identity and local session interface across the integrated GEI platform surfaces.
 
-### V1.0.1 delivered
+### V1.0.2 delivered
 
-- Shared module registry at `platform/platform-registry.js`.
-- Shared integration layer at `platform/platform-integration.js`.
-- Research Engine connected to the Platform Core.
-- Commerce + Vault connected to the Platform Core.
-- Laboratory connected to the Platform Core.
-- Media Engine connected to the Platform Core.
-- Content Explorer connected to the Platform Core.
-- Active module state and navigation history flow through `GEIPlatform`.
-- Responsive navigation is injected into integrated module pages.
-- Academy remains a foundation route pending deeper Academy integration.
+- Shared session API at `platform/platform-session.js`.
+- Persistent anonymous visitor and local session identifiers.
+- Session timestamps, page views, current-module state, and module visit counts.
+- Optional sanitized display name.
+- Self-selected `visitor`, `learner`, or `researcher` persona.
+- Shared session events and Platform Core navigation integration.
+- Platform Hub session initialization and visitor indicator.
+- Migration-safe normalization of stored local state.
+- Explicit non-authoritative identity and security boundaries.
 
-### Platform integrity boundaries
+### Identity integrity boundary
 
-- Browser-local state is convenience state, not authentication.
-- Browser-local state is not payment proof.
-- Commerce remains provider-neutral.
-- Research records distinguish sources, evidence, claims, interpretations, provenance, and review state.
-- Laboratory experiences remain conceptual educational models.
+V1.0.2 is **not authentication** and does not establish verified identity, authorization, payment verification, or researcher credentials. Browser localStorage is convenience state only and must never be treated as proof of identity or payment.
+
+The V1.0.2 interface is intentionally ready for a future secure server-backed identity layer.
 
 ## Research Integrity Principle
 
@@ -64,8 +61,9 @@ The site should feel like an interdisciplinary research institution and engineer
 - V0.8 — Media
 - V0.9 — SEO / Performance Hardening
 - V1.0 — GEI Platform Core
-- **V1.0.1 — Unified Navigation & Module Integration (current)**
+- V1.0.1 — Unified Navigation & Module Integration
+- **V1.0.2 — Shared Identity & Session Layer (current)**
 
 ## Next
 
-The next release should be driven by browser verification of the integrated modules before adding deeper identity, analytics, or production commerce infrastructure.
+V1.0.3 should focus on browser verification and a future-ready session/profile presentation layer before introducing any trusted server-backed identity or authentication.
