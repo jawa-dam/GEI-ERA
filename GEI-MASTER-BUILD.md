@@ -2,7 +2,7 @@
 
 **Project:** Genesis Engineered Interpretations (GEI)  
 **Repository:** `jawa-dam/GEI-ERA`  
-**Current Release:** V0.1  
+**Current Release:** V0.3  
 **Canonical development branch:** `main`
 
 ## Mission
@@ -153,7 +153,7 @@ Completed:
 
 ### V0.2 — Interactive Control Room
 
-Target:
+Completed:
 
 - True dashboard interactions
 - Animated hydraulic flow
@@ -163,18 +163,29 @@ Target:
 - Featured products panel
 - Mobile navigation drawer
 - Dashboard state handling
+- Dark / Light / System theme selection
+- Keyboard and reduced-motion basics
 
-### V0.3 — Content Engine
+### V0.3 — Content Architecture
 
-Target:
+Completed:
 
-- Reusable content schemas
-- Research cards
-- Course cards
-- Product cards
-- Content detail templates
-- Tags/categories
-- Search/filter foundation
+- Canonical reusable content schema
+- Research, lesson, guide, product, media, and future content types
+- Stable IDs and slugs
+- Status and version fields
+- Free / premium / unlocked / member access model
+- Pricing fields without payment-provider coupling
+- Tags and categories
+- Source and related-content references
+- Media references
+- SEO metadata fields
+- Provenance and audit references
+- Interactive Content Explorer
+- Search foundation
+- Content-type filters
+- Reusable content cards
+- Content detail inspection template
 
 ### V0.4 — GEI Academy
 
