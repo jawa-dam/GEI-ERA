@@ -45,4 +45,7 @@
     render();
   });
   window.GEIResearch = { getState:()=>({...state}), filter:filtered };
+
+  // V1.0.1 Platform Integration: load the shared navigation without changing research semantics.
+  const platformScript=document.createElement('script'); platformScript.src='../platform/platform-integration.js'; document.head.appendChild(platformScript);
 })();

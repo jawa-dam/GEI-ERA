@@ -10,4 +10,7 @@
     select(id){const a=assets().find(x=>x.id===id);if(!a)return null;const s=read();s.selectedId=id;s.history=[id,...s.history.filter(x=>x!==id)].slice(0,10);write(s);window.dispatchEvent(new CustomEvent('gei-media-select',{detail:a}));return a},
     reset(){localStorage.removeItem(KEY);location.reload()}
   };
+
+  // V1.0.1 Platform Integration: media remains a catalog/experience layer.
+  const platformScript=document.createElement('script'); platformScript.src='../platform/platform-integration.js'; document.head.appendChild(platformScript);
 })();

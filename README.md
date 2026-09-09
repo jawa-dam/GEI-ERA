@@ -17,23 +17,27 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V0.9
+## Current Release — V1.0.2
 
-**V0.9 — SEO + Performance Hardening** strengthens the public platform for search discovery, social sharing, accessibility, mobile delivery, and portable production deployment.
+**V1.0.2 — Shared Identity & Session Layer** adds a persistent anonymous visitor identity and local session interface across the integrated GEI platform surfaces.
 
-### V0.9 delivered
+### V1.0.2 delivered
 
-- XML sitemap at `/sitemap.xml`.
-- `robots.txt` with sitemap declaration.
-- Lightweight `site.webmanifest`.
-- Dedicated accessible `404.html` fallback using `noindex`.
-- Hardened canonical, Open Graph, Twitter/X metadata on public sub-pages.
-- Schema.org structured data on Content, Research, Laboratory, Media, and Commerce pages.
-- Human-oriented SEO copy with no keyword stuffing.
-- Performance guidance that keeps the platform dependency-light and standards-based.
-- V0.9 QA checklist documenting what is verified in-repository versus what still requires live deployment testing.
+- Shared session API at `platform/platform-session.js`.
+- Persistent anonymous visitor and local session identifiers.
+- Session timestamps, page views, current-module state, and module visit counts.
+- Optional sanitized display name.
+- Self-selected `visitor`, `learner`, or `researcher` persona.
+- Shared session events and Platform Core navigation integration.
+- Platform Hub session initialization and visitor indicator.
+- Migration-safe normalization of stored local state.
+- Explicit non-authoritative identity and security boundaries.
 
-**Important:** Live Core Web Vitals, PageSpeed, Search Console verification, and final production-domain checks must be measured after deployment. The repository does not claim scores it has not measured.
+### Identity integrity boundary
+
+V1.0.2 is **not authentication** and does not establish verified identity, authorization, payment verification, or researcher credentials. Browser localStorage is convenience state only and must never be treated as proof of identity or payment.
+
+The V1.0.2 interface is intentionally ready for a future secure server-backed identity layer.
 
 ## Research Integrity Principle
 
@@ -55,5 +59,11 @@ The site should feel like an interdisciplinary research institution and engineer
 - V0.6 — Commerce / Vault
 - V0.7 — Laboratory / Games
 - V0.8 — Media
-- **V0.9 — SEO / Performance Hardening (current)**
-- V1.0 — GEI Platform
+- V0.9 — SEO / Performance Hardening
+- V1.0 — GEI Platform Core
+- V1.0.1 — Unified Navigation & Module Integration
+- **V1.0.2 — Shared Identity & Session Layer (current)**
+
+## Next
+
+V1.0.3 should focus on browser verification and a future-ready session/profile presentation layer before introducing any trusted server-backed identity or authentication.

@@ -35,4 +35,7 @@
       return { ok:true, provider:'external', product };
     }
   };
+
+  // V1.0.1 Platform Integration: Commerce remains provider-neutral and entitlement-safe.
+  const platformScript=document.createElement('script'); platformScript.src='../platform/platform-integration.js'; document.head.appendChild(platformScript);
 })();
