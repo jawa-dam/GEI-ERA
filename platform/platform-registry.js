@@ -1,4 +1,4 @@
-/* GEI Platform Registry v1.0.3
+/* GEI Platform Registry v1.0.4
  * Canonical client-side map of GEI modules and their public routes.
  * Routes are navigation targets only; they do not grant identity, payment, or protected access.
  */
@@ -15,10 +15,11 @@
     { id:'media', label:'Media', path:'../media/', state:'implemented', description:'GEI media catalog and experience layer.' },
     { id:'marketplace', label:'Marketplace', path:'../commerce/', state:'implemented', description:'GEI product catalog and commerce surface.' },
     { id:'vault', label:'Vault', path:'../commerce/', state:'implemented', description:'Entitlement-aware knowledge access surface.' },
-    { id:'profile', label:'Profile', path:'../profile/', state:'implemented', description:'Shared local profile and experience presentation layer.' }
+    { id:'profile', label:'Profile', path:'../profile/', state:'implemented', description:'Shared local profile and experience presentation layer.' },
+    { id:'progress', label:'Progress', path:'../progress/', state:'implemented', description:'Unified local learning progress and achievement presentation layer.' }
   ];
   window.GEI_PLATFORM_REGISTRY = Object.freeze({
-    version: '1.0.3',
+    version: '1.0.4',
     modules: Object.freeze(modules.map(Object.freeze)),
     get(id) { return modules.find(m => m.id === id) || null; },
     list() { return modules.slice(); }
