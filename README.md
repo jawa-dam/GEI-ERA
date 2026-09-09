@@ -17,24 +17,23 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V0.6
+## Current Release — V0.9
 
-**V0.6 — Commerce + Vault** adds the provider-neutral product, checkout-handoff, entitlement, and protected-access foundation.
+**V0.9 — SEO + Performance Hardening** strengthens the public platform for search discovery, social sharing, accessibility, mobile delivery, and portable production deployment.
 
-### V0.6 delivered
+### V0.9 delivered
 
-- Product catalog with stable product IDs and SKUs.
-- GEI Discovery Guide — $10 USD.
-- GEI Blueprint Collection — $25 USD.
-- GEI Premium Blueprint Access — $69 USD.
-- Provider-neutral checkout handoff event.
-- Development/demo entitlement state.
-- Vault access model based on entitlements.
-- Explicit separation between demo access and purchases.
-- No payment credentials in client code.
-- Responsive Commerce + Vault interface at `commerce/index.html`.
+- XML sitemap at `/sitemap.xml`.
+- `robots.txt` with sitemap declaration.
+- Lightweight `site.webmanifest`.
+- Dedicated accessible `404.html` fallback using `noindex`.
+- Hardened canonical, Open Graph, Twitter/X metadata on public sub-pages.
+- Schema.org structured data on Content, Research, Laboratory, Media, and Commerce pages.
+- Human-oriented SEO copy with no keyword stuffing.
+- Performance guidance that keeps the platform dependency-light and standards-based.
+- V0.9 QA checklist documenting what is verified in-repository versus what still requires live deployment testing.
 
-**Important:** V0.6 does not treat browser storage as proof of payment. Real purchases must be verified by a trusted server/payment integration before an active entitlement is issued.
+**Important:** Live Core Web Vitals, PageSpeed, Search Console verification, and final production-domain checks must be measured after deployment. The repository does not claim scores it has not measured.
 
 ## Research Integrity Principle
 
@@ -46,15 +45,15 @@ GEI research records distinguish source material, observations/evidence, claims,
 
 The site should feel like an interdisciplinary research institution and engineering laboratory while remaining approachable and commercially useful.
 
-## Planned Release Path
+## Release Path
 
 - V0.1 — Foundation / Control Room
 - V0.2 — Interactive Control Room
 - V0.3 — Content Architecture
 - V0.4 — GEI Academy
 - V0.5 — GEI Research Engine
-- **V0.6 — Commerce / Vault (current)**
+- V0.6 — Commerce / Vault
 - V0.7 — Laboratory / Games
 - V0.8 — Media
-- V0.9 — SEO / Performance Hardening
+- **V0.9 — SEO / Performance Hardening (current)**
 - V1.0 — GEI Platform
