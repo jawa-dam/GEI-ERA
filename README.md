@@ -17,27 +17,28 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V1.0.2
+## Current Release — V1.0.3
 
-**V1.0.2 — Shared Identity & Session Layer** adds a persistent anonymous visitor identity and local session interface across the integrated GEI platform surfaces.
+**V1.0.3 — Shared Profile & Experience Layer** adds a presentation and personalization surface over the V1.0.2 anonymous visitor/session foundation.
 
-### V1.0.2 delivered
+### V1.0.3 delivered
 
-- Shared session API at `platform/platform-session.js`.
-- Persistent anonymous visitor and local session identifiers.
-- Session timestamps, page views, current-module state, and module visit counts.
-- Optional sanitized display name.
-- Self-selected `visitor`, `learner`, or `researcher` persona.
-- Shared session events and Platform Core navigation integration.
-- Platform Hub session initialization and visitor indicator.
-- Migration-safe normalization of stored local state.
-- Explicit non-authoritative identity and security boundaries.
+- Shared Profile Center at `profile/`.
+- Local visitor identity, persona, and activity presentation.
+- Optional sanitized display name and self-selected persona.
+- Page-view and module-visit summaries.
+- Profile reset controls.
+- Shared Profile API at `profile/profile-engine.js`.
+- Profile route registered in the GEI Platform Registry.
+- Profile entry added to the unified platform navigation.
+- Mobile-first profile experience.
+- Explicit non-authoritative identity and privacy boundaries.
 
 ### Identity integrity boundary
 
-V1.0.2 is **not authentication** and does not establish verified identity, authorization, payment verification, or researcher credentials. Browser localStorage is convenience state only and must never be treated as proof of identity or payment.
+V1.0.3 is a **personalization layer**, not authentication. It does not establish verified identity, authorization, payment verification, or researcher credentials. Browser localStorage remains convenience state only and must never be treated as proof of identity or payment.
 
-The V1.0.2 interface is intentionally ready for a future secure server-backed identity layer.
+The profile interface is intentionally prepared for a future secure server-backed identity layer.
 
 ## Research Integrity Principle
 
@@ -62,8 +63,9 @@ The site should feel like an interdisciplinary research institution and engineer
 - V0.9 — SEO / Performance Hardening
 - V1.0 — GEI Platform Core
 - V1.0.1 — Unified Navigation & Module Integration
-- **V1.0.2 — Shared Identity & Session Layer (current)**
+- V1.0.2 — Shared Identity & Session Layer
+- **V1.0.3 — Shared Profile & Experience Layer (current)**
 
 ## Next
 
-V1.0.3 should focus on browser verification and a future-ready session/profile presentation layer before introducing any trusted server-backed identity or authentication.
+V1.0.4 should unify learning progress and achievement presentation across Academy, Laboratory, and Research while preserving the non-authoritative local-state boundary until a secure server-backed identity layer is introduced.

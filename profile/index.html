@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GEI Profile — Shared Experience</title>
+<meta name="description" content="GEI Shared Profile and Experience Center for anonymous personalization, module activity, and platform preferences.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://yalltoo.com/profile/">
+<link rel="stylesheet" href="../profile/profile.css"><script src="../theme-v2.js"></script><script src="../platform/platform-core.js"></script><script src="../platform/platform-session.js"></script><script src="../profile/profile-engine.js"></script>
+</head>
+<body>
+<header class="profile-nav"><div class="profile-shell profile-nav-inner"><a class="profile-brand" href="../">YALLTOO<small>GEI PLATFORM</small></a><a href="../">Control Room</a><a href="../platform/">Platform</a><a href="../content/">Explore</a><a href="../research/">Research</a><a href="../laboratory/">Laboratory</a><a href="../media/">Media</a><a href="../commerce/">Vault</a><a href="./" aria-current="page">Profile</a></div></header>
+<main class="profile-shell">
+<section class="hero"><div class="eyebrow">GEI V1.0.3 · Shared Profile</div><h1>Your GEI experience.</h1><p>A local personalization center built on the V1.0.2 visitor/session layer. Your profile helps the interface remember preferences and activity on this browser.</p></section>
+<section class="grid">
+<div class="panel"><h2>Visitor Identity</h2><div class="identity-id" id="visitor">Loading…</div><div class="meta"><div class="meta-row"><span>Persona</span><strong id="persona">Visitor</strong></div><div class="meta-row"><span>Current module</span><strong id="current">—</strong></div><div class="meta-row"><span>Session created</span><strong id="created">—</strong></div><div class="meta-row"><span>Last active</span><strong id="active">—</strong></div></div></div>
+<div class="panel"><h2>Experience</h2><div class="activity"><div class="metric"><b id="views">0</b><span>Page views</span></div><div class="metric"><b id="modules">0</b><span>Modules visited</span></div></div><div class="module-list" id="moduleList"></div></div>
+<div class="panel"><h2>Personalize</h2><form class="form" id="profileForm"><label for="displayName">Display name (optional)</label><input id="displayName" maxlength="48" autocomplete="nickname" placeholder="Enter a display name"><label for="personaSelect">Persona</label><select id="personaSelect"><option value="visitor">Visitor</option><option value="learner">Learner</option><option value="researcher">Researcher</option></select><div class="actions"><button class="btn primary" type="submit">Save profile</button><button class="btn" type="button" id="resetProfile">Reset profile</button></div></form><div class="notice"><strong>Privacy boundary:</strong> this is browser-local personalization. It is not authentication, authorization, payment proof, or verified researcher identity. Do not enter passwords, payment credentials, or sensitive personal information.</div></div>
+<div class="panel"><h2>What comes next</h2><p class="notice">V1.0.3 establishes the shared presentation layer. Future releases can connect this interface to secure server-backed identity, unified learning progress, achievements, and trusted entitlements without treating localStorage as authoritative.</p></div>
+</section>
+</main>
+<script>
+(() => {
+  'use strict';
+  const render = () => {
+    const state = window.GEI_PROFILE?.getState();
+    if (!state) return;
+    const shortId = state.identity.visitorId.slice(-8).toUpperCase();
+    document.getElementById('visitor').textContent = 'VISITOR ' + shortId;
+    document.getElementById('persona').textContent = state.profile.persona.charAt(0).toUpperCase() + state.profile.persona.slice(1);
+    document.getElementById('current').textContent = state.session.currentModule;
+    document.getElementById('created').textContent = new Date(state.session.createdAt).toLocaleString();
+    document.getElementById('active').textContent = new Date(state.session.lastActiveAt).toLocaleString();
+    document.getElementById('views').textContent = state.session.pageViews;
+    const entries = Object.entries(state.session.moduleVisits).sort((a,b) => b[1]-a[1]);
+    document.getElementById('modules').textContent = entries.length;
+    document.getElementById('moduleList').innerHTML = entries.length ? entries.map(([id,count]) => `<div class="module-row"><span>${id}</span><strong>${count}</strong></div>`).join('') : '<div class="notice">No module visits recorded yet.</div>';
+    document.getElementById('displayName').value = state.profile.displayName;
+    document.getElementById('personaSelect').value = state.profile.persona;
+  };
+  document.getElementById('profileForm').addEventListener('submit', event => { event.preventDefault(); window.GEI_PROFILE.setProfile({displayName:document.getElementById('displayName').value,persona:document.getElementById('personaSelect').value}); render(); });
+  document.getElementById('resetProfile').addEventListener('click', () => { window.GEI_PROFILE.resetProfile(); render(); });
+  document.addEventListener('gei-profile:change', render);
+  document.addEventListener('gei-session:module', render);
+  render();
+})();
+</script>
+</body></html>
