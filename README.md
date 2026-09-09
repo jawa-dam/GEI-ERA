@@ -17,23 +17,30 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V0.9
+## Current Release — V1.0.1
 
-**V0.9 — SEO + Performance Hardening** strengthens the public platform for search discovery, social sharing, accessibility, mobile delivery, and portable production deployment.
+**V1.0.1 — Unified Navigation & Module Integration** connects the V1.0 Platform Core to the existing GEI Research, Commerce/Vault, Laboratory, Media, and Content systems through a shared module registry and responsive navigation layer.
 
-### V0.9 delivered
+### V1.0.1 delivered
 
-- XML sitemap at `/sitemap.xml`.
-- `robots.txt` with sitemap declaration.
-- Lightweight `site.webmanifest`.
-- Dedicated accessible `404.html` fallback using `noindex`.
-- Hardened canonical, Open Graph, Twitter/X metadata on public sub-pages.
-- Schema.org structured data on Content, Research, Laboratory, Media, and Commerce pages.
-- Human-oriented SEO copy with no keyword stuffing.
-- Performance guidance that keeps the platform dependency-light and standards-based.
-- V0.9 QA checklist documenting what is verified in-repository versus what still requires live deployment testing.
+- Shared module registry at `platform/platform-registry.js`.
+- Shared integration layer at `platform/platform-integration.js`.
+- Research Engine connected to the Platform Core.
+- Commerce + Vault connected to the Platform Core.
+- Laboratory connected to the Platform Core.
+- Media Engine connected to the Platform Core.
+- Content Explorer connected to the Platform Core.
+- Active module state and navigation history flow through `GEIPlatform`.
+- Responsive navigation is injected into integrated module pages.
+- Academy remains a foundation route pending deeper Academy integration.
 
-**Important:** Live Core Web Vitals, PageSpeed, Search Console verification, and final production-domain checks must be measured after deployment. The repository does not claim scores it has not measured.
+### Platform integrity boundaries
+
+- Browser-local state is convenience state, not authentication.
+- Browser-local state is not payment proof.
+- Commerce remains provider-neutral.
+- Research records distinguish sources, evidence, claims, interpretations, provenance, and review state.
+- Laboratory experiences remain conceptual educational models.
 
 ## Research Integrity Principle
 
@@ -55,5 +62,10 @@ The site should feel like an interdisciplinary research institution and engineer
 - V0.6 — Commerce / Vault
 - V0.7 — Laboratory / Games
 - V0.8 — Media
-- **V0.9 — SEO / Performance Hardening (current)**
-- V1.0 — GEI Platform
+- V0.9 — SEO / Performance Hardening
+- V1.0 — GEI Platform Core
+- **V1.0.1 — Unified Navigation & Module Integration (current)**
+
+## Next
+
+The next release should be driven by browser verification of the integrated modules before adding deeper identity, analytics, or production commerce infrastructure.
