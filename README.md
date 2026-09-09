@@ -17,29 +17,26 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V1.0.4
+## Current Release — V1.0.5
 
-**V1.0.4 — Unified Learning Progress & Achievement Layer** adds a unified local progress presentation over the V1.0.2 session and V1.0.3 profile foundation.
+**V1.0.5 — GEI Research Portfolio & Credential Presentation Layer** adds a portfolio surface over the existing session, profile, and unified progress foundations.
 
-### V1.0.4 delivered
+### V1.0.5 delivered
 
-- Unified Progress Center at `progress/`.
-- Canonical achievement definitions in `progress/progress-data.js`.
-- Unified progress engine in `progress/progress-engine.js`.
-- Existing Laboratory XP, runs, and completed experiments surfaced.
-- Existing Research review and note activity surfaced.
-- Platform module visits and Profile personalization surfaced.
-- Academy progress uses an explicit optional adapter and is never fabricated.
-- Local achievement unlocks and timestamps.
-- Unified XP presentation: existing Laboratory XP plus derived achievement XP.
-- Progress route registered in the GEI Platform Registry.
-- Progress destination added to unified platform navigation.
-- Mobile-first responsive Progress Center.
-- Explicit non-authoritative progress and credential boundaries.
+- Research Portfolio at `portfolio/`.
+- Local visitor/profile identity presentation.
+- Unified XP, achievement, module-visit, and research-touch summaries.
+- Achievement record with locked/unlocked state.
+- Research activity presentation from local notes/reviews.
+- Future credential pathway presentation.
+- Portfolio route registered in the GEI Platform Registry.
+- Portfolio destination added to unified platform navigation.
+- Mobile-responsive portfolio experience.
+- Strict non-authoritative credential boundaries.
 
-### Progress integrity boundary
+### Credential integrity boundary
 
-V1.0.4 is a **local experience and presentation layer**, not authentication or certification. It does not establish verified identity, authorization, payment verification, researcher credentials, or academic certification. Browser localStorage remains convenience state only.
+V1.0.5 is a **presentation layer**, not a credential issuer. Browser localStorage remains convenience state only. It does not establish verified identity, authorization, academic credit, verified authorship, certification, payment proof, or server-backed credential issuance.
 
 ## Research Integrity Principle
 
@@ -66,8 +63,9 @@ The site should feel like an interdisciplinary research institution and engineer
 - V1.0.1 — Unified Navigation & Module Integration
 - V1.0.2 — Shared Identity & Session Layer
 - V1.0.3 — Shared Profile & Experience Layer
-- **V1.0.4 — Unified Learning Progress & Achievement Layer (current)**
+- V1.0.4 — Unified Learning Progress & Achievement Layer
+- **V1.0.5 — GEI Research Portfolio & Credential Presentation Layer (current)**
 
 ## Next
 
-V1.0.5 should focus on a presentation layer for research portfolios and future credentials while preserving a strict distinction between local achievements and server-verified credentials.
+**V1.0.6 — GEI Unified Knowledge & Discovery Layer** should consolidate content, research, laboratory, media, portfolio, and marketplace discovery into a shared search/index surface while preserving each system's integrity boundaries.
