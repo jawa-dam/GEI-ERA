@@ -1,0 +1,1 @@
+V1.0.8 is ready for code review and browser QA.
