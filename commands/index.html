@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>GEI Commands — Command Center</title>
-<meta name="description" content="GEI Command Center for safe cross-system navigation and supported actions across the Genesis Engineered Interpretations platform.">
+<meta name="description" content="GEI Command Center for safe cross-system navigation and module-owned action contracts across the Genesis Engineered Interpretations platform.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://yalltoo.com/commands/">
 <meta property="og:title" content="GEI Commands — Command Center">
-<meta property="og:description" content="A bounded command surface for navigating and launching supported GEI experiences.">
+<meta property="og:description" content="A bounded command surface for navigating and dispatching module-owned GEI actions.">
 <link rel="stylesheet" href="../theme.css">
 <link rel="stylesheet" href="../commands/command.css">
 </head>
 <body>
 <main class="command-shell">
   <section class="command-hero">
-    <div class="eyebrow">GEI V1.0.10 · COMMAND ORCHESTRATION</div>
+    <div class="eyebrow">GEI V1.0.11 · MODULE ACTION ADAPTERS</div>
     <h1>Command Center</h1>
-    <p>Tell GEI where you want to go. Supported commands route you to the owning GEI module without taking ownership of its data, permissions, payments, research records, or credentials.</p>
+    <p>Tell GEI where you want to go. Commands resolve through module-owned action contracts, while each owning module retains responsibility for its data, permissions, payments, research records, credentials, and protected state.</p>
     <div class="command-bar">
       <label for="command-input">GEI command</label>
       <div class="command-input-row">
@@ -30,7 +30,7 @@
   </section>
 
   <section class="command-panel">
-    <div class="panel-head"><div><span class="eyebrow">SUPPORTED ACTIONS</span><h2>What can I ask GEI to do?</h2></div><span class="command-status">LAST: <strong id="command-last">Ready</strong></span></div>
+    <div class="panel-head"><div><span class="eyebrow">MODULE ACTIONS</span><h2>What can I ask GEI to do?</h2></div><span class="command-status">LAST: <strong id="command-last">Ready</strong></span></div>
     <div class="command-grid">
       <button type="button" data-command="open-research"><strong>Open Research</strong><small>Research, evidence & provenance</small></button>
       <button type="button" data-command="start-dam-lab"><strong>Start Dam Simulator</strong><small>Launch the conceptual dam lab</small></button>
@@ -50,7 +50,7 @@
 
   <section class="integrity">
     <strong>Integrity boundary</strong>
-    <p>Command Orchestration is a navigation and action-dispatch layer. It does not authenticate users, prove identity, authorize protected access, verify payments, alter research evidence or claims, issue credentials, or create authoritative academic records. Module-owned systems remain responsible for their own state and security.</p>
+    <p>Module Action Adapters provide explicit action contracts and routing hints. They do not authenticate users, prove identity, authorize protected access, verify payments, alter research evidence or claims, issue credentials, or create authoritative academic records. Module-owned systems remain responsible for their own state and security.</p>
   </section>
 </main>
 <script src="../theme-v2.js"></script>
@@ -60,6 +60,8 @@
 <script src="../timeline/timeline-engine.js"></script>
 <script src="../search/search-engine.js"></script>
 <script src="./command-data.js"></script>
+<script src="../actions/action-data.js"></script>
+<script src="../actions/action-engine.js"></script>
 <script src="./command-engine.js"></script>
 <script src="../platform/platform-integration.js"></script>
 <script>
