@@ -14,7 +14,7 @@
     { id:'library', label:'Library', path:'../content/', state:'implemented', description:'Current content-library surface powered by the content architecture.' },
     { id:'media', label:'Media', path:'../media/', state:'implemented', description:'GEI media catalog and experience layer.' },
     { id:'marketplace', label:'Marketplace', path:'../commerce/', state:'implemented', description:'GEI product catalog and commerce surface.' },
-    { id:'vault', label:'Vault', path:'../commerce/', state:'integrated', description:'Entitlement-aware knowledge access surface.' },
+    { id:'vault', label:'Vault', path:'../commerce/', state:'implemented', description:'Entitlement-aware knowledge access surface.' },
     { id:'profile', label:'Profile', path:'../profile/', state:'implemented', description:'Shared local profile and experience presentation layer.' }
   ];
   window.GEI_PLATFORM_REGISTRY = Object.freeze({
