@@ -1,4 +1,4 @@
-/* GEI Platform Integration v1.0.2 */
+/* GEI Platform Integration v1.0.3 */
 (() => {
   'use strict';
   const REGISTRY_SRC = '../platform/platform-registry.js';
@@ -25,6 +25,7 @@
     if (PATH.includes('/media/')) return 'media';
     if (PATH.includes('/commerce/')) return 'marketplace';
     if (PATH.includes('/content/')) return 'explore';
+    if (PATH.includes('/profile/')) return 'profile';
     if (PATH.includes('/platform/')) return 'platform';
     return 'control-room';
   }
@@ -49,7 +50,7 @@
       #${NAV_ID} .gei-nav-status{margin-left:auto;color:#91a8b8;font-size:9px;letter-spacing:.12em;white-space:nowrap}
       #${NAV_ID} .gei-nav-session{color:#2fd2ff;font-size:9px;letter-spacing:.1em;white-space:nowrap;border:1px solid rgba(47,210,255,.2);padding:7px 8px;border-radius:9px}
       @media(max-width:700px){#${NAV_ID}{padding:8px 9px}#${NAV_ID} .gei-nav-brand{display:none}#${NAV_ID} .gei-nav-status{display:none}}
-    </style><div class="gei-nav-inner"><a class="gei-nav-brand" href="../">GEI<small>PLATFORM</small></a>${window.GEI_PLATFORM_REGISTRY.list().map(m => `<a href="${m.path}" data-module="${m.id}" ${m.id===current?'aria-current="page"':''}>${m.label}</a>`).join('')}<span class="gei-nav-status">INTEGRATION 1.0.2</span><span class="gei-nav-session" title="Anonymous local visitor session">VISITOR ${visitor}</span></div>`;
+    </style><div class="gei-nav-inner"><a class="gei-nav-brand" href="../">GEI<small>PLATFORM</small></a>${window.GEI_PLATFORM_REGISTRY.list().map(m => `<a href="${m.path}" data-module="${m.id}" ${m.id===current?'aria-current="page"':''}>${m.label}</a>`).join('')}<span class="gei-nav-status">INTEGRATION 1.0.3</span><a class="gei-nav-session" href="../profile/" title="Open shared local profile">VISITOR ${visitor}</a></div>`;
     document.body.prepend(nav);
     nav.addEventListener('click', event => {
       const link = event.target.closest('[data-module]');
