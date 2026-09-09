@@ -41,9 +41,13 @@
   }
 
   function distinctModules(s) { return Object.keys(s?.session?.moduleVisits || {}).filter(Boolean); }
-  function researchTouched(r) {
-    return Object.keys(r?.reviews || {}).filter(Boolean).length + Object.keys(r?.notes || {}).filter(Boolean).length;
+  function researchRecordIds(r) {
+    return [...new Set([
+      ...Object.keys(r?.reviews || {}).filter(Boolean),
+      ...Object.keys(r?.notes || {}).filter(Boolean)
+    ])];
   }
+  function researchTouched(r) { return researchRecordIds(r).length; }
   function personalized(s) {
     return Boolean(s?.profile?.displayName || (s?.profile?.persona && s.profile.persona !== 'visitor'));
   }
@@ -86,6 +90,7 @@
     const l = lab();
     const r = research();
     const modules = distinctModules(s);
+    const recordIds = researchRecordIds(r);
     const unlockedIds = Object.keys(own.unlocked).filter(id => data().achievements.some(a => a.id === id));
     const achievementXP = data().achievements.filter(a => unlockedIds.includes(a.id)).reduce((sum, a) => sum + Number(a.xp || 0), 0);
     const labXP = Number.isFinite(Number(l.xp)) ? Number(l.xp) : 0;
@@ -100,7 +105,7 @@
       modulesVisited:modules,
       moduleCount:modules.length,
       laboratory:{ runs:Number(l.runs || 0), completed:Array.isArray(l.completed) ? l.completed.slice() : [], xp:labXP },
-      research:{ touchedRecords:researchTouched(r), reviews:Object.keys(r.reviews || {}).length, notes:Object.keys(r.notes || {}).length },
+      research:{ touchedRecords:recordIds.length, reviews:Object.keys(r.reviews || {}).length, notes:Object.keys(r.notes || {}).length },
       academy:{ connected:academyState.connected, key:academyState.key },
       achievements:data().achievements.map(a => ({ ...a, unlocked:Boolean(own.unlocked[a.id]), unlockedAt:own.unlocked[a.id] || null })),
       xp:{ laboratory:labXP, achievements:achievementXP, total:labXP + achievementXP }
@@ -124,6 +129,7 @@
   document.addEventListener('gei-session:module', refresh);
   document.addEventListener('gei-profile:change', refresh);
   document.addEventListener('gei-lab-progress', refresh);
+  window.addEventListener('gei-lab-progress', refresh);
   document.addEventListener('gei-session:reset', refresh);
   window.addEventListener('storage', event => {
     if ([LAB_KEY, RESEARCH_KEY, 'gei-session-v1.0.2'].includes(event.key)) refresh();
