@@ -2,7 +2,7 @@
 
 ## Genesis Engineered Interpretations — Enterprise Research & Academy Platform
 
-GEI-ERA is the new canonical website foundation for Genesis Engineered Interpretations (GEI).
+GEI-ERA is the canonical website foundation for Genesis Engineered Interpretations (GEI).
 
 The repository is designed to evolve into a professional, SEO-ready digital platform combining:
 
@@ -17,9 +17,28 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## V0.1 — Control Room Foundation
+## Current Release — V0.2
 
-The initial release establishes the visual and information architecture:
+**V0.2 — Interactive Control Room** upgrades the V0.1 foundation into an active dashboard experience.
+
+### V0.2 delivered
+
+- True interactive GEI system tiles with module dialogs.
+- Expandable system descriptions and direct module entry actions.
+- Animated hydraulic-flow monitor in the Control Room.
+- Dashboard state handling with remembered last-opened system.
+- Featured research module and recent research activity panel.
+- Featured marketplace product and premium pipeline panel.
+- Responsive mobile navigation drawer with open/close state.
+- Dark / Light / System theme selector with persistent preference.
+- Keyboard-accessible modal and navigation controls.
+- Reduced-motion support for animations.
+- Existing SEO metadata and semantic page structure preserved.
+- Standards-based HTML/CSS/JavaScript with no new external runtime dependencies.
+
+## V0.1 — Foundation
+
+The initial release established:
 
 - Mobile-first responsive layout
 - Water + engineering + gear visual language
@@ -50,7 +69,7 @@ Build in versioned stages. Each release should remain deployable, auditable, mob
 ## Planned Release Path
 
 - V0.1 — Foundation / Control Room
-- V0.2 — Interactive Control Room
+- **V0.2 — Interactive Control Room (current)**
 - V0.3 — Content Architecture
 - V0.4 — GEI Academy
 - V0.5 — GEI Research
