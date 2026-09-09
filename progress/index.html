@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GEI Progress — Learning & Achievement</title>
+  <meta name="description" content="GEI Unified Learning Progress and Achievement Center connecting platform activity, Laboratory experience, Research activity, and Profile personalization.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://yalltoo.com/progress/">
+  <link rel="stylesheet" href="../progress/progress.css">
+  <script src="../theme-v2.js"></script>
+  <script src="../platform/platform-core.js"></script>
+  <script src="../platform/platform-session.js"></script>
+  <script src="../progress/progress-data.js"></script>
+  <script src="../progress/progress-engine.js"></script>
+  <script src="../platform/platform-integration.js"></script>
+</head>
+<body>
+  <main class="progress-shell" id="progress-app">
+    <section class="progress-hero">
+      <div class="eyebrow">GEI v1.0.4 · Unified Progress</div>
+      <h1>Learn. <span>Explore.</span> Achieve.</h1>
+      <p class="lead">One local progress view for the GEI experience. Existing activity is presented across Platform, Laboratory, Research, and Profile without inventing credentials or verified achievements.</p>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <h2>Your progress</h2>
+        <div class="stats">
+          <div class="stat"><b data-total-xp>0</b><span>Total XP</span></div>
+          <div class="stat"><b data-achievements>0/0</b><span>Achievements</span></div>
+          <div class="stat"><b data-modules>0</b><span>Modules visited</span></div>
+        </div>
+        <div style="margin-top:22px"><strong data-progress-label>0% achievement progress</strong><div class="progress-track" aria-label="Achievement progress"><div class="progress-fill" data-progress-fill></div></div></div>
+        <div class="notice" data-visitor style="margin-top:18px">Visitor state loading…</div>
+        <div class="actions"><a class="primary" href="../profile/">Open Profile</a><a href="../laboratory/">Enter Laboratory</a><a href="../research/">Explore Research</a></div>
+      </article>
+
+      <article class="panel">
+        <h2>Learning systems</h2>
+        <div class="module-list" data-systems></div>
+        <div class="notice" style="margin-top:14px">Academy integration is intentionally adapter-based. Progress is shown only when an Academy progress state is actually present.</div>
+      </article>
+    </section>
+
+    <section class="panel" style="margin-top:18px">
+      <h2>Achievements</h2>
+      <div class="achievement-grid" data-achievement-grid></div>
+    </section>
+
+    <section class="panel" style="margin-top:18px">
+      <h2>Activity snapshot</h2>
+      <div class="stats">
+        <div class="stat"><b data-page-views>0</b><span>Page views</span></div>
+        <div class="stat"><b data-lab-runs>0</b><span>Lab runs</span></div>
+        <div class="stat"><b data-research-touched>0</b><span>Research records touched</span></div>
+      </div>
+      <p class="fineprint">Progress is derived from local browser state already recorded by GEI. It is not authentication, authorization, payment proof, a verified researcher identity, or an academic credential. Clearing browser storage can remove local progress.</p>
+      <div class="actions"><button type="button" data-reset>Reset achievement state</button></div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      'use strict';
+      const $ = s => document.querySelector(s);
+      const escapeHtml = v => String(v ?? '').replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+      function render(){
+        const api = window.GEI_PROGRESS;
+        if(!api) return;
+        const s = api.getState();
+        const unlocked = s.achievements.filter(a => a.unlocked).length;
+        const total = s.achievements.length;
+        const percent = total ? Math.round(unlocked / total * 100) : 0;
+        $('[data-total-xp]').textContent = s.xp.total;
+        $('[data-achievements]').textContent = `${unlocked}/${total}`;
+        $('[data-modules]').textContent = s.moduleCount;
+        $('[data-page-views]').textContent = s.pageViews;
+        $('[data-lab-runs]').textContent = s.laboratory.runs;
+        $('[data-research-touched]').textContent = s.research.touchedRecords;
+        $('[data-progress-label]').textContent = `${percent}% achievement progress`;
+        $('[data-progress-fill]').style.width = `${percent}%`;
+        $('[data-visitor]').innerHTML = `<strong>Visitor:</strong> ${escapeHtml(s.visitorId ? s.visitorId.slice(-8).toUpperCase() : 'LOCAL')} · <strong>Persona:</strong> ${escapeHtml(s.persona)} · <strong>Current:</strong> ${escapeHtml(s.currentModule)}`;
+        $('[data-systems]').innerHTML = window.GEI_PROGRESS_DATA.modules.map(m => {
+          const connected = m.id === 'academy' ? s.academy.connected : true;
+          let detail = connected ? 'Connected' : 'Awaiting progress adapter';
+          if(m.id === 'laboratory') detail = `${s.laboratory.completed.length} completed · ${s.laboratory.xp} XP`;
+          if(m.id === 'research') detail = `${s.research.touchedRecords} records touched`;
+          if(m.id === 'platform') detail = `${s.moduleCount} modules visited`;
+          if(m.id === 'profile') detail = s.persona + (s.persona !== 'visitor' ? ' persona' : ' persona');
+          return `<div class="module-row"><strong>${escapeHtml(m.label)}</strong><span>${escapeHtml(detail)}</span></div>`;
+        }).join('');
+        $('[data-achievement-grid]').innerHTML = s.achievements.map(a => `<article class="achievement ${a.unlocked ? 'unlocked' : ''}"><span class="icon">${escapeHtml(a.icon)}</span><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.description)}</p><span class="badge">${a.unlocked ? 'Unlocked · ' + a.xp + ' XP' : 'Locked · ' + a.xp + ' XP'}</span></article>`).join('');
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        render();
+        document.addEventListener('gei-progress:change', render);
+        document.addEventListener('gei-session:change', render);
+        document.addEventListener('gei-lab-progress', render);
+        document.addEventListener('gei-profile:change', render);
+        $('[data-reset]').addEventListener('click', () => { if(window.GEI_PROGRESS) window.GEI_PROGRESS.resetAchievements(); });
+      }, {once:true});
+    })();
+  </script>
+</body>
+</html>

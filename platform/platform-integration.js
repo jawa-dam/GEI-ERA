@@ -1,4 +1,4 @@
-/* GEI Platform Integration v1.0.3 */
+/* GEI Platform Integration v1.0.4 */
 (() => {
   'use strict';
   const REGISTRY_SRC = '../platform/platform-registry.js';
@@ -7,10 +7,23 @@
   const NAV_ID = 'gei-platform-unified-nav';
   const PATH = window.location.pathname;
 
+  function alreadyReady(src) {
+    if (src.includes('platform-registry.js')) return Boolean(window.GEI_PLATFORM_REGISTRY);
+    if (src.includes('platform-core.js')) return Boolean(window.GEIPlatform);
+    if (src.includes('platform-session.js')) return Boolean(window.GEI_SESSION);
+    return false;
+  }
+
   function load(src) {
     return new Promise((resolve, reject) => {
+      if (alreadyReady(src)) return resolve();
       const existing = [...document.scripts].find(s => s.src.includes(src));
-      if (existing) return existing.dataset.loaded === 'true' ? resolve() : existing.addEventListener('load', resolve, { once:true });
+      if (existing) {
+        if (existing.dataset.loaded === 'true') return resolve();
+        existing.addEventListener('load', resolve, { once:true });
+        existing.addEventListener('error', reject, { once:true });
+        return;
+      }
       const script = document.createElement('script');
       script.src = src;
       script.onload = () => { script.dataset.loaded = 'true'; resolve(); };
@@ -26,6 +39,7 @@
     if (PATH.includes('/commerce/')) return 'marketplace';
     if (PATH.includes('/content/')) return 'explore';
     if (PATH.includes('/profile/')) return 'profile';
+    if (PATH.includes('/progress/')) return 'progress';
     if (PATH.includes('/platform/')) return 'platform';
     return 'control-room';
   }
@@ -50,7 +64,7 @@
       #${NAV_ID} .gei-nav-status{margin-left:auto;color:#91a8b8;font-size:9px;letter-spacing:.12em;white-space:nowrap}
       #${NAV_ID} .gei-nav-session{color:#2fd2ff;font-size:9px;letter-spacing:.1em;white-space:nowrap;border:1px solid rgba(47,210,255,.2);padding:7px 8px;border-radius:9px}
       @media(max-width:700px){#${NAV_ID}{padding:8px 9px}#${NAV_ID} .gei-nav-brand{display:none}#${NAV_ID} .gei-nav-status{display:none}}
-    </style><div class="gei-nav-inner"><a class="gei-nav-brand" href="../">GEI<small>PLATFORM</small></a>${window.GEI_PLATFORM_REGISTRY.list().map(m => `<a href="${m.path}" data-module="${m.id}" ${m.id===current?'aria-current="page"':''}>${m.label}</a>`).join('')}<span class="gei-nav-status">INTEGRATION 1.0.3</span><a class="gei-nav-session" href="../profile/" title="Open shared local profile">VISITOR ${visitor}</a></div>`;
+    </style><div class="gei-nav-inner"><a class="gei-nav-brand" href="../">GEI<small>PLATFORM</small></a>${window.GEI_PLATFORM_REGISTRY.list().map(m => `<a href="${m.path}" data-module="${m.id}" ${m.id===current?'aria-current="page"':''}>${m.label}</a>`).join('')}<span class="gei-nav-status">INTEGRATION 1.0.4</span><a class="gei-nav-session" href="../profile/" title="Open shared local profile">VISITOR ${visitor}</a></div>`;
     document.body.prepend(nav);
     nav.addEventListener('click', event => {
       const link = event.target.closest('[data-module]');
