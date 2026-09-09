@@ -17,26 +17,21 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V1.0.5
+## Current Release — V1.0.6
 
-**V1.0.5 — GEI Research Portfolio & Credential Presentation Layer** adds a portfolio surface over the existing session, profile, and unified progress foundations.
+**V1.0.6 — GEI Unified Knowledge & Discovery Layer** adds a shared discovery surface for navigating the current GEI knowledge ecosystem.
 
-### V1.0.5 delivered
+### V1.0.6 delivered
 
-- Research Portfolio at `portfolio/`.
-- Local visitor/profile identity presentation.
-- Unified XP, achievement, module-visit, and research-touch summaries.
-- Achievement record with locked/unlocked state.
-- Research activity presentation from local notes/reviews.
-- Future credential pathway presentation.
-- Portfolio route registered in the GEI Platform Registry.
-- Portfolio destination added to unified platform navigation.
-- Mobile-responsive portfolio experience.
-- Strict non-authoritative credential boundaries.
-
-### Credential integrity boundary
-
-V1.0.5 is a **presentation layer**, not a credential issuer. Browser localStorage remains convenience state only. It does not establish verified identity, authorization, academic credit, verified authorship, certification, payment proof, or server-backed credential issuance.
+- New `discovery/` knowledge explorer.
+- Search across record IDs, titles, descriptions, types, categories, and tags.
+- Category filtering and clear-search controls.
+- Recent-discovery history stored locally.
+- Curated records spanning Research, Academy, Library, Marketplace, Control Room, Laboratory, Platform, Profile, Progress, Portfolio, and Media.
+- Discovery registered in the Platform Registry.
+- Discovery added to unified platform navigation.
+- Responsive and reduced-motion support.
+- Explicit boundaries separating discovery from proof, credentials, payment, and authenticated identity.
 
 ## Research Integrity Principle
 
@@ -64,8 +59,9 @@ The site should feel like an interdisciplinary research institution and engineer
 - V1.0.2 — Shared Identity & Session Layer
 - V1.0.3 — Shared Profile & Experience Layer
 - V1.0.4 — Unified Learning Progress & Achievement Layer
-- **V1.0.5 — GEI Research Portfolio & Credential Presentation Layer (current)**
+- V1.0.5 — GEI Research Portfolio & Credential Presentation Layer
+- **V1.0.6 — GEI Unified Knowledge & Discovery Layer (current)**
 
 ## Next
 
-**V1.0.6 — GEI Unified Knowledge & Discovery Layer** should consolidate content, research, laboratory, media, portfolio, and marketplace discovery into a shared search/index surface while preserving each system's integrity boundaries.
+**V1.0.7 — GEI Unified Knowledge Graph & Relationship Layer** should expose explicit relationships among records, sources, research claims, learning modules, media, and products while preserving the distinction between relationship and proof.
