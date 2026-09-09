@@ -17,21 +17,22 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V1.0.6
+## Current Release — V1.0.7
 
-**V1.0.6 — GEI Unified Knowledge & Discovery Layer** adds a shared discovery surface for navigating the current GEI knowledge ecosystem.
+**V1.0.7 — GEI Unified Knowledge Graph & Relationship Layer** adds a navigable relationship model above the V1.0.6 discovery index.
 
-### V1.0.6 delivered
+### V1.0.7 delivered
 
-- New `discovery/` knowledge explorer.
-- Search across record IDs, titles, descriptions, types, categories, and tags.
-- Category filtering and clear-search controls.
-- Recent-discovery history stored locally.
-- Curated records spanning Research, Academy, Library, Marketplace, Control Room, Laboratory, Platform, Profile, Progress, Portfolio, and Media.
-- Discovery registered in the Platform Registry.
-- Discovery added to unified platform navigation.
+- New `knowledge/` relationship surface.
+- Versioned node and relationship dataset.
+- Relationship inspection through selectable nodes and connected neighbors.
+- Category filtering and reset controls.
+- Recent-node history stored locally.
+- Direct navigation from graph nodes to existing GEI systems.
+- Knowledge Graph registered in the Platform Registry.
+- Knowledge Graph added to unified platform navigation.
 - Responsive and reduced-motion support.
-- Explicit boundaries separating discovery from proof, credentials, payment, and authenticated identity.
+- Explicit boundaries separating relationships from proof, credentials, payment, identity, and authority.
 
 ## Research Integrity Principle
 
@@ -60,8 +61,9 @@ The site should feel like an interdisciplinary research institution and engineer
 - V1.0.3 — Shared Profile & Experience Layer
 - V1.0.4 — Unified Learning Progress & Achievement Layer
 - V1.0.5 — GEI Research Portfolio & Credential Presentation Layer
-- **V1.0.6 — GEI Unified Knowledge & Discovery Layer (current)**
+- V1.0.6 — GEI Unified Knowledge & Discovery Layer
+- **V1.0.7 — GEI Unified Knowledge Graph & Relationship Layer (current)**
 
 ## Next
 
-**V1.0.7 — GEI Unified Knowledge Graph & Relationship Layer** should expose explicit relationships among records, sources, research claims, learning modules, media, and products while preserving the distinction between relationship and proof.
+**V1.0.8 — GEI Unified Activity Timeline & Journey Layer** should present a chronological journey through platform navigation, learning progress, laboratory activity, research activity, profile changes, discoveries, and portfolio milestones while preserving the distinction between local activity and authoritative records.
