@@ -1,12 +1,14 @@
-/* GEI Command Orchestration Engine v1.0.10
- * Safe navigation/action dispatch only. No authentication, payment, entitlement,
- * credential, research-authority, or protected-state mutation is performed here.
+/* GEI Command Orchestration Engine v1.0.11
+ * The command layer resolves intent; module action adapters own action contracts.
+ * No authentication, payment, entitlement, credential, research-authority, or
+ * protected-state mutation is performed here.
  */
 (() => {
   'use strict';
   const KEY='gei-commands-v1.0.10', MAX_RECENT=8;
   const data=()=>window.GEI_COMMAND_DATA||{commands:[]};
   const registry=()=>window.GEI_PLATFORM_REGISTRY;
+  const actions=()=>window.GEI_ACTIONS;
   const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(_){return{}}};
   const write=s=>{try{localStorage.setItem(KEY,JSON.stringify(s))}catch(_) {}};
   let state={recent:[],lastCommand:null,...read()};
@@ -30,12 +32,17 @@
   function execute(input,options={}){
     const command=typeof input==='string'?resolve(input):input;
     if(!command)return {ok:false,reason:'unknown-command',input:String(input||'')};
-    const route=routeFor(command);
-    if(!route)return {ok:false,reason:'unregistered-module',command:command.id};
+    const fallbackRoute=routeFor(command);
+    if(!fallbackRoute)return {ok:false,reason:'unregistered-module',command:command.id};
     state.lastCommand=command.id;
     state.recent=[command.id,...state.recent.filter(id=>id!==command.id)].slice(0,MAX_RECENT);
     persist();
-    const detail={commandId:command.id,label:command.label,module:command.module,route,source:options.source||'command',at:new Date().toISOString()};
+    const actionResult=actions()?.dispatch?.(command,{source:options.source||'command'})||null;
+    if(actionResult && !actionResult.ok && actionResult.reason!=='no-module-action'){
+      return {ok:false,reason:actionResult.reason,commandId:command.id,module:command.module};
+    }
+    const route=actionResult?.route||fallbackRoute;
+    const detail={commandId:command.id,label:command.label,module:command.module,route,action:actionResult?.kind||'navigate',source:options.source||'command',at:new Date().toISOString()};
     document.dispatchEvent(new CustomEvent('gei-command:execute',{detail}));
     if(options.navigate!==false){window.location.href=new URL(route,document.baseURI).href;}
     return {ok:true,...detail};
@@ -64,6 +71,6 @@
     document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('command-input')?.focus()}});
     render();
   }
-  window.GEI_COMMANDS=Object.freeze({version:'1.0.10',commands,resolve,execute,getState:()=>snapshot(),clearRecent,reset});
+  window.GEI_COMMANDS=Object.freeze({version:'1.0.11',commands,resolve,execute,getState:()=>snapshot(),clearRecent,reset});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
