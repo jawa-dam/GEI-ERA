@@ -2,7 +2,7 @@
 
 **Project:** Genesis Engineered Interpretations (GEI)  
 **Repository:** `jawa-dam/GEI-ERA`  
-**Current Release:** V0.3  
+**Current Release:** V0.5  
 **Canonical development branch:** `main`
 
 ## Mission
@@ -41,15 +41,7 @@ Use the established GEI palette as a starting point:
 - Magenta: `#F310BA`
 - Pink: `#FF9DF2`
 
-The visual language should combine:
-
-- Deep-water atmosphere
-- Engineering schematics / blueprint cues
-- Precision panels
-- Hydraulic flow motifs
-- Subtle gear / machine references
-- Academic typography and information hierarchy
-- Premium product presentation
+The visual language should combine deep-water atmosphere, engineering schematics / blueprint cues, precision panels, hydraulic flow motifs, subtle gear / machine references, academic typography and information hierarchy, and premium product presentation.
 
 Avoid making the site look like a generic gaming site, generic church site, or generic ecommerce template.
 
@@ -72,192 +64,66 @@ All stages must preserve:
 
 SEO is part of the architecture from the beginning so the finished site can be adapted cleanly to Hostinger.
 
-Every production content page should eventually support:
-
-- Unique `<title>`
-- Unique meta description
-- Canonical URL
-- Correct heading hierarchy
-- Descriptive image alt text
-- Open Graph metadata
-- Twitter/X card metadata where useful
-- Structured data / Schema.org where appropriate
-- Descriptive internal links
-- Human-readable URLs
-- XML sitemap
-- robots.txt
-- Breadcrumbs where useful
-- Mobile-first performance
-- Search-friendly content that remains useful to humans
+Every production content page should eventually support unique title, meta description, canonical URL, correct heading hierarchy, descriptive image alt text, Open Graph metadata, Twitter/X card metadata where useful, structured data where appropriate, descriptive internal links, human-readable URLs, sitemap, robots.txt, breadcrumbs where useful, mobile-first performance, and useful human-oriented content.
 
 Do not use keyword stuffing.
 
 ## Content Architecture
 
-Future content records should be able to carry:
-
-- ID
-- Title
-- Slug
-- Description
-- Content type
-- Category
-- Author
-- Date created
-- Date updated
-- Version
-- Status
-- Tags
-- Free / premium access level
-- Price when applicable
-- Sources
-- Related content
-- Media assets
-- SEO metadata
-- Provenance / audit references
-
-## Commerce Architecture
-
-Commerce should be designed so digital products can later include:
-
-- One-time purchase
-- Page/content unlock
-- Course purchase
-- Ebook purchase
-- Game purchase
-- Media purchase
-- Download entitlement
-- Future membership entitlement
-
-The UI should not hard-code a specific payment provider into the content layer.
+Future content records should be able to carry ID, title, slug, description, content type, category, author, dates, version, status, tags, access level, price, sources, related content, media, SEO metadata, and provenance / audit references.
 
 ## Staged Releases
 
 ### V0.1 — Foundation
 
-Completed:
-
-- GEI Control Room homepage
-- Primary navigation zones
-- Responsive base layout
-- GEI design language
-- SEO metadata foundation
-- About / Method section
-- Research section
-- Academy section
-- Laboratory section
-- Library section
-- Marketplace section
-- Vault section
-- Contact section
+Completed: GEI Control Room homepage, primary navigation zones, responsive base layout, GEI design language, SEO metadata foundation, About / Method, Research, Academy, Laboratory, Library, Marketplace, Vault, and Contact sections.
 
 ### V0.2 — Interactive Control Room
 
-Completed:
-
-- True dashboard interactions
-- Animated hydraulic flow
-- Expandable system modules
-- Featured content modules
-- Recent research panel
-- Featured products panel
-- Mobile navigation drawer
-- Dashboard state handling
-- Dark / Light / System theme selection
-- Keyboard and reduced-motion basics
+Completed: dashboard interactions, animated hydraulic flow, expandable system modules, featured content, recent research, featured products, mobile navigation drawer, dashboard state handling, theme selection, keyboard support, and reduced-motion basics.
 
 ### V0.3 — Content Architecture
 
-Completed:
-
-- Canonical reusable content schema
-- Research, lesson, guide, product, media, and future content types
-- Stable IDs and slugs
-- Status and version fields
-- Free / premium / unlocked / member access model
-- Pricing fields without payment-provider coupling
-- Tags and categories
-- Source and related-content references
-- Media references
-- SEO metadata fields
-- Provenance and audit references
-- Interactive Content Explorer
-- Search foundation
-- Content-type filters
-- Reusable content cards
-- Content detail inspection template
+Completed: canonical reusable content schema, stable IDs/slugs, statuses and versions, access model, pricing fields, tags, source/related references, media, SEO metadata, provenance, and Content Explorer.
 
 ### V0.4 — GEI Academy
 
-Target:
+Foundation target: Levels 1–6, lessons, XP, progress, badges, certificates, researcher identity, and premium course access architecture.
 
-- Levels 1–6
-- Lessons
-- XP
-- Progress
-- Badges
-- Certificates
-- Researcher identity
-- Premium course access
+### V0.5 — GEI Research Engine
 
-### V0.5 — GEI Research
+Completed in this release:
 
-Target:
-
-- Research repository integration
-- Papers
-- Working papers
-- Evidence records
-- Sources
-- Provenance
-- Audit trail
-- Chronology
-- Taxonomy
-- Peer-review workflow
+- Research repository interface.
+- Papers and working papers.
+- Evidence records.
+- Source registration.
+- Claims and interpretation fields.
+- Provenance metadata.
+- Audit-trail architecture.
+- Genesis Chapter 1 chronology model.
+- Master Chronology & Taxonomy record.
+- Research search and filters.
+- Record inspection.
+- Review-state prototype.
+- Local research-note prototype.
+- Mobile/accessibility/SEO foundation.
 
 ### V0.6 — Commerce + Vault
 
-Target:
-
-- Product catalog
-- Premium unlocks
-- Entitlements
-- Checkout integration
-- Purchase confirmation
-- Protected content model
+Target: product catalog, premium unlocks, entitlements, checkout integration, purchase confirmation, and protected content model.
 
 ### V0.7 — Laboratory
 
-Target:
-
-- Dam / Mill simulator
-- Water lab
-- Word Detective
-- Genesis learning games
-- Achievement integration
+Target: Dam / Mill simulator, Water Lab, Word Detective, Genesis learning games, and achievement integration.
 
 ### V0.8 — Media
 
-Target:
-
-- Image experiences
-- Video experiences
-- Audio
-- Interactive books
-- Media licensing / download controls as appropriate
+Target: image experiences, video, audio, interactive books, and appropriate media licensing/download controls.
 
 ### V0.9 — SEO + Performance Hardening
 
-Target:
-
-- Full metadata audit
-- Schema audit
-- Sitemap
-- robots.txt
-- Core Web Vitals-oriented optimization
-- Accessibility pass
-- Mobile QA
-- Link integrity
+Target: full metadata audit, Schema audit, sitemap, robots.txt, Core Web Vitals-oriented optimization, accessibility pass, mobile QA, and link integrity.
 
 ### V1.0 — GEI Platform
 
@@ -265,18 +131,7 @@ The complete public-facing GEI research, learning, publishing, laboratory, and c
 
 ## Definition of Done for Every Release
 
-A release is not complete until:
-
-1. Desktop layout works.
-2. Mobile layout works.
-3. No obvious overflow or broken framing exists.
-4. Navigation works.
-5. Interactive controls have visible states.
-6. Accessibility basics are respected.
-7. SEO foundations remain intact.
-8. The README and release notes reflect the current state.
-9. No existing working feature is silently broken.
-10. The change is committed with a clear versioned commit message.
+A release is not complete until desktop and mobile layouts work, overflow is controlled, navigation works, interactive controls have visible states, accessibility basics are respected, SEO foundations remain intact, README/release notes reflect the current state, existing working features are not silently broken, and the change is committed with a clear versioned commit message.
 
 ## Change Control
 
@@ -284,6 +139,4 @@ Use small, auditable commits. Prefer feature branches and pull requests once the
 
 ## Hostinger Compatibility
 
-The GitHub build is the source-of-truth development environment. The final presentation must be portable to a Hostinger deployment/builder workflow without requiring the Hostinger editor to understand the full development process.
-
-Prefer standards-based HTML/CSS/JavaScript and portable assets.
+The GitHub build is the source-of-truth development environment. The final presentation must be portable to a Hostinger deployment/builder workflow without requiring the Hostinger editor to understand the full development process. Prefer standards-based HTML/CSS/JavaScript and portable assets.
