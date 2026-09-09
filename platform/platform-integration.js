@@ -7,10 +7,23 @@
   const NAV_ID = 'gei-platform-unified-nav';
   const PATH = window.location.pathname;
 
+  function alreadyReady(src) {
+    if (src.includes('platform-registry.js')) return Boolean(window.GEI_PLATFORM_REGISTRY);
+    if (src.includes('platform-core.js')) return Boolean(window.GEIPlatform);
+    if (src.includes('platform-session.js')) return Boolean(window.GEI_SESSION);
+    return false;
+  }
+
   function load(src) {
     return new Promise((resolve, reject) => {
+      if (alreadyReady(src)) return resolve();
       const existing = [...document.scripts].find(s => s.src.includes(src));
-      if (existing) return existing.dataset.loaded === 'true' ? resolve() : existing.addEventListener('load', resolve, { once:true });
+      if (existing) {
+        if (existing.dataset.loaded === 'true') return resolve();
+        existing.addEventListener('load', resolve, { once:true });
+        existing.addEventListener('error', reject, { once:true });
+        return;
+      }
       const script = document.createElement('script');
       script.src = src;
       script.onload = () => { script.dataset.loaded = 'true'; resolve(); };
