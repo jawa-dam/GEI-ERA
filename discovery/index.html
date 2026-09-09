@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GEI Discovery — Unified Knowledge Explorer</title>
+<meta name="description" content="Explore the GEI knowledge map across research, learning, laboratory, media, profile, progress, portfolio, and marketplace systems.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://yalltoo.com/discovery/">
+<link rel="stylesheet" href="discovery.css">
+<script src="../theme-v2.js"></script>
+<script src="../platform/platform-core.js"></script>
+<script src="../platform/platform-registry.js"></script>
+<script src="../platform/platform-session.js"></script>
+<script src="discovery-data.js"></script>
+<script src="discovery-engine.js"></script>
+<script src="../platform/platform-integration.js"></script>
+</head>
+<body>
+<main class="discovery-shell">
+<section class="hero" aria-labelledby="title">
+<div class="eyebrow">GEI V1.0.6 · KNOWLEDGE DISCOVERY</div>
+<h1>Find the <span>knowledge.</span><br>Follow the system.</h1>
+<p>A unified discovery surface for navigating the current GEI research, learning, laboratory, media, profile, progress, portfolio, and marketplace records.</p>
+</section>
+<section class="search-panel" aria-label="Knowledge search">
+<div class="search-row"><input id="discovery-search" type="search" placeholder="Search GEI records, topics, tags, or IDs…" aria-label="Search GEI knowledge"><button id="discovery-clear" class="clear" type="button">Clear</button></div>
+<div id="discovery-categories" class="filters" aria-label="Filter by category"></div>
+</section>
+<div class="result-head"><h2>Knowledge map</h2><span id="discovery-count">0 records</span></div>
+<section id="discovery-results" class="discovery-grid" aria-live="polite"></section>
+<section class="recent-panel" aria-labelledby="recent-title"><h2 id="recent-title">Recent discoveries</h2><div id="discovery-recent"><span>No recent records yet.</span></div></section>
+<p class="integrity"><strong>Integrity boundary:</strong> Discovery organizes GEI records for navigation. A record's presence here does not establish that an interpretation is proven, that a planned asset exists, or that a visitor has a verified credential, payment entitlement, or authenticated identity.</p>
+</main>
+</body>
+</html>
