@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GEI Search — Unified Command Center</title>
+<meta name="description" content="Search and navigate the GEI platform across research, academy, discovery, knowledge graph, timeline, laboratory, profile, progress, portfolio, media, library, and marketplace.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://yalltoo.com/search/">
+<link rel="stylesheet" href="search.css">
+<script src="../theme-v2.js"></script><script src="../platform/platform-core.js"></script><script src="../platform/platform-registry.js"></script><script src="../platform/platform-session.js"></script><script src="search-data.js"></script><script src="search-engine.js"></script><script src="../platform/platform-integration.js"></script>
+</head>
+<body><main class="search-shell">
+<section class="hero"><div class="eyebrow">GEI V1.0.9 · UNIFIED SEARCH & COMMAND</div><h1>Find your way through <span>GEI.</span></h1><p>One command surface for discovering records and opening the GEI systems connected to them. Press Ctrl+K or ⌘K from this page to focus search.</p></section>
+<section class="command-box" aria-label="GEI search command"><kbd>CTRL K</kbd><input id="search-query" type="search" autocomplete="off" placeholder="Search GEI records, systems, research, labs…" aria-label="Search GEI"></section>
+<nav id="search-filters" class="filters" aria-label="Search categories"></nav>
+<section class="result-bar"><h2>Results</h2><span id="search-count" class="muted">0 results</span><button id="search-reset" class="reset" type="button">Reset</button></section>
+<section id="search-results" class="search-results" aria-live="polite"></section>
+<section class="recent-panel"><header><h2>Recent commands</h2><div class="recent-actions"><button id="search-clear-recent" type="button">Clear</button></div></header><div id="search-recent" class="recent-list"><span class="muted">No recent commands.</span></div></section>
+<p class="integrity"><strong>Integrity boundary:</strong> Search is a navigation and discovery layer. A search result does not establish truth, proof, authorship, credentials, payment, identity, or protected access. Those claims remain governed by their respective GEI systems.</p>
+</main></body></html>
