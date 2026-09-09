@@ -2,7 +2,7 @@
 
 **Project:** Genesis Engineered Interpretations (GEI)  
 **Repository:** `jawa-dam/GEI-ERA`  
-**Current Release:** V0.5  
+**Current Release:** V0.9  
 **Canonical development branch:** `main`
 
 ## Mission
@@ -60,13 +60,13 @@ All stages must preserve:
 - Reusable components/patterns.
 - Clear separation of content, presentation, and future commerce logic.
 
-## SEO Requirements
+## SEO + Performance Requirements
 
-SEO is part of the architecture from the beginning so the finished site can be adapted cleanly to Hostinger.
+Every production content page should support unique title, meta description, canonical URL, correct heading hierarchy, descriptive image alt text, Open Graph metadata, Twitter/X card metadata where useful, structured data where appropriate, descriptive internal links, human-readable URLs, sitemap, robots.txt, mobile-first performance, and useful human-oriented content.
 
-Every production content page should eventually support unique title, meta description, canonical URL, correct heading hierarchy, descriptive image alt text, Open Graph metadata, Twitter/X card metadata where useful, structured data where appropriate, descriptive internal links, human-readable URLs, sitemap, robots.txt, breadcrumbs where useful, mobile-first performance, and useful human-oriented content.
+V0.9 adds the public crawl layer (`sitemap.xml`, `robots.txt`), web manifest, 404 fallback, structured data, metadata hardening, and a deployment QA checklist. Do not claim live Core Web Vitals, Search Console verification, or PageSpeed scores until measured against the deployed site.
 
-Do not use keyword stuffing.
+Do not use keyword stuffing or structured data to imply unsupported historical/scientific certainty.
 
 ## Content Architecture
 
@@ -88,7 +88,7 @@ Completed: canonical reusable content schema, stable IDs/slugs, statuses and ver
 
 ### V0.4 — GEI Academy
 
-Foundation target: Levels 1–6, lessons, XP, progress, badges, certificates, researcher identity, and premium course access architecture.
+Foundation target: Levels 1–6, lessons, XP, progress, badges, certificates, researcher identity, and premium course access architecture. Implementation status must be verified before being represented as complete.
 
 ### V0.5 — GEI Research Engine
 
@@ -111,19 +111,19 @@ Completed in this release:
 
 ### V0.6 — Commerce + Vault
 
-Target: product catalog, premium unlocks, entitlements, checkout integration, purchase confirmation, and protected content model.
+Completed: product catalog, stable SKUs, provider-neutral checkout handoff, local development/demo entitlement model, and protected-access architecture. Real purchases require trusted server/payment verification.
 
 ### V0.7 — Laboratory
 
-Target: Dam / Mill simulator, Water Lab, Word Detective, Genesis learning games, and achievement integration.
+Completed: Dam / Mill simulator foundation, Water Lab, Word Detective, Genesis learning experiments, and local achievement/XP recording.
 
 ### V0.8 — Media
 
-Target: image experiences, video, audio, interactive books, and appropriate media licensing/download controls.
+Completed: media metadata catalog, type filtering, media inspection viewer, recent selection state, and architecture for future binary assets, licensing, streaming, downloads, and Vault protection.
 
 ### V0.9 — SEO + Performance Hardening
 
-Target: full metadata audit, Schema audit, sitemap, robots.txt, Core Web Vitals-oriented optimization, accessibility pass, mobile QA, and link integrity.
+Completed: public sitemap, robots policy, web manifest, 404 fallback, canonical/OG/Twitter metadata hardening, Schema.org page markup, accessibility reinforcement, dependency-light performance direction, and deployment QA checklist.
 
 ### V1.0 — GEI Platform
 
