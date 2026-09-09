@@ -45,3 +45,6 @@ window.GEI_CONTENT = [
     provenance:{recordedBy:"GEI Platform System",recordedAt:"2026-09-08T00:00:00Z",method:"Release record",evidenceRefs:["V0.2-INTERACTIVE-CONTROL-ROOM.md"],auditNote:"Represents the V0.2 Control Room release."}
   }
 ];
+
+// V1.0.1 Platform Integration.
+const platformScript=document.createElement('script'); platformScript.src='../platform/platform-integration.js'; document.head.appendChild(platformScript);
