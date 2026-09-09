@@ -1,0 +1,11 @@
+{
+  "name": "GEI — Genesis Engineered Interpretations",
+  "short_name": "GEI",
+  "description": "The GEI interdisciplinary research, learning, laboratory, media, and commerce platform.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06070d",
+  "theme_color": "#06070d",
+  "icons": []
+}
