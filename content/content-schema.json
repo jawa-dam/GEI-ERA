@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yalltoo.com/gei/content-schema.json",
+  "title": "GEI Content Record",
+  "description": "Canonical content record schema for Genesis Engineered Interpretations.",
+  "type": "object",
+  "required": ["id", "title", "slug", "description", "contentType", "category", "author", "created", "updated", "version", "status", "access", "tags", "sources", "related", "seo", "provenance"],
+  "properties": {
+    "id": {"type":"string","pattern":"^GEI-[A-Z0-9-]+$"},
+    "title": {"type":"string","minLength":1},
+    "slug": {"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "description": {"type":"string"},
+    "contentType": {"type":"string","enum":["research","course","lesson","product","book","media","guide","dataset"]},
+    "category": {"type":"string"},
+    "author": {"type":"string"},
+    "created": {"type":"string","format":"date"},
+    "updated": {"type":"string","format":"date"},
+    "version": {"type":"string"},
+    "status": {"type":"string","enum":["draft","review","published","archived","planned"]},
+    "access": {"type":"string","enum":["free","premium","unlocked","member"]},
+    "price": {"type":["number","null"],"minimum":0},
+    "currency": {"type":["string","null"],"enum":["USD",null]},
+    "tags": {"type":"array","items":{"type":"string"}},
+    "sources": {"type":"array","items":{"type":"string"}},
+    "related": {"type":"array","items":{"type":"string"}},
+    "media": {"type":"array","items":{"type":"string"}},
+    "seo": {
+      "type":"object",
+      "required":["title","description","canonical"],
+      "properties":{
+        "title":{"type":"string"},
+        "description":{"type":"string","maxLength":160},
+        "canonical":{"type":"string","format":"uri"}
+      }
+    },
+    "provenance": {
+      "type":"object",
+      "required":["recordedBy","recordedAt","method","evidenceRefs"],
+      "properties":{
+        "recordedBy":{"type":"string"},
+        "recordedAt":{"type":"string","format":"date-time"},
+        "method":{"type":"string"},
+        "evidenceRefs":{"type":"array","items":{"type":"string"}},
+        "auditNote":{"type":"string"}
+      }
+    }
+  }
+}
