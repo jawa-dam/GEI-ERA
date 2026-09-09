@@ -1,4 +1,4 @@
-/* GEI Unified Search & Command Engine v1.0.9 */
+/* GEI Unified Search & Command Engine v1.0.10 */
 (() => {
   'use strict';
   const KEY='gei-search-v1.0.9', MAX_RECENT=8;
@@ -7,10 +7,10 @@
   const write=s=>{try{localStorage.setItem(KEY,JSON.stringify(s))}catch(_){}};
   let state={query:'',category:'All',recent:[],...read()};
   state={query:typeof state.query==='string'?state.query:'',category:typeof state.category==='string'?state.category:'All',recent:Array.isArray(state.recent)?state.recent.slice(0,MAX_RECENT):[]};
-  const records=()=>data().records||[];
-  const categories=()=>['All',...new Set(records().map(r=>r.category))];
   const getState=()=>JSON.parse(JSON.stringify(state));
   const persist=()=>{write(state);document.dispatchEvent(new CustomEvent('gei-search:change',{detail:getState()}));render()};
+  const records=()=>data().records||[];
+  const categories=()=>['All',...new Set(records().map(r=>r.category))];
   function score(record,q){
     if(!q)return 1;
     const text=[record.id,record.title,record.type,record.category,record.description].join(' ').toLowerCase();
@@ -25,6 +25,11 @@
   function setQuery(q){state.query=String(q||'');persist()}
   function setCategory(c){state.category=categories().includes(c)?c:'All';persist()}
   function select(id){const r=records().find(x=>x.id===id);if(!r)return null;state.recent=[id,...state.recent.filter(x=>x!==id)].slice(0,MAX_RECENT);persist();window.location.href=r.route;return r}
+  function executeInput(input){
+    const command=window.GEI_COMMANDS?.resolve?.(input);
+    if(command){window.GEI_COMMANDS.execute(command,{source:'search-command'});return true}
+    return false;
+  }
   function clearRecent(){state.recent=[];persist()}
   function reset(){state={query:'',category:'All',recent:[]};persist()}
   function render(){
@@ -35,7 +40,7 @@
   }
   document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('search-query')?.addEventListener('input',e=>{state.query=e.target.value;persist()});
-    document.getElementById('search-query')?.addEventListener('keydown',e=>{if(e.key==='Enter'){const first=results()[0]?.record;if(first)select(first.id)}});
+    document.getElementById('search-query')?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();if(executeInput(e.target.value))return;const first=results()[0]?.record;if(first)select(first.id)}});
     document.getElementById('search-filters')?.addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(b)setCategory(b.dataset.category)});
     document.getElementById('search-results')?.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)select(b.dataset.open)});
     document.getElementById('search-recent')?.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)select(b.dataset.open)});
@@ -44,5 +49,5 @@
     document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('search-query')?.focus()}});
     render();
   });
-  window.GEI_SEARCH=Object.freeze({version:'1.0.9',getState,records,categories,results,setQuery,setCategory,select,clearRecent,reset});
+  window.GEI_SEARCH=Object.freeze({version:'1.0.10',getState,records,categories,results,setQuery,setCategory,select,clearRecent,reset});
 })();
