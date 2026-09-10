@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://yalltoo.com/gei/provenance.schema.json",
+  "title":"GEI Provenance Event V1.0.12",
+  "type":"object",
+  "required":["eventId","eventType","actor","action","module","target","source","occurredAt","recordedAt","integrity"],
+  "properties":{
+    "eventId":{"type":"string","minLength":1},
+    "eventType":{"enum":["platform-navigation","session","command","module-action","discovery","knowledge","profile","progress","portfolio","research-reference","system"]},
+    "actor":{"type":"string","minLength":1},
+    "action":{"type":"string","minLength":1},
+    "module":{"type":"string","minLength":1},
+    "target":{"type":"string","minLength":1},
+    "source":{"type":"string","minLength":1},
+    "occurredAt":{"type":"string","format":"date-time"},
+    "recordedAt":{"type":"string","format":"date-time"},
+    "context":{"type":"object"},
+    "evidenceRefs":{"type":"array","items":{"type":"string"}},
+    "integrity":{"type":"object","required":["verificationState","authoritative"],"properties":{"verificationState":{"type":"string"},"authoritative":{"type":"boolean"},"version":{"type":"string"}},"additionalProperties":true}
+  },
+  "additionalProperties":false
+}

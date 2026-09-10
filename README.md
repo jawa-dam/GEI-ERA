@@ -17,21 +17,21 @@ The repository is designed to evolve into a professional, SEO-ready digital plat
 - Branded merchandise
 - Future membership and credential systems
 
-## Current Release — V1.0.11
+## Current Release — V1.0.12
 
-**V1.0.11 — GEI Module Action Adapter Layer** extends V1.0.10 Command Orchestration with explicit module-owned action contracts.
+**V1.0.12 — GEI Provenance Intelligence & Audit Trail Layer** strengthens traceability around platform actions and research-facing references while preserving the distinction between browser-local presentation history and authoritative server-side audit evidence.
 
-### V1.0.11 delivered
+### V1.0.12 delivered
 
-- New `actions/action-data.js` module action contract registry.
-- New `actions/action-engine.js` module action dispatch layer.
-- Command Engine upgraded to V1.0.11 and delegates recognized commands through module action contracts.
-- Laboratory commands can carry experiment-specific routing hints.
-- Command Center loads the adapter layer directly for deterministic startup.
-- Platform Integration loads action contracts and the action engine globally.
-- Activity Timeline records module-action dispatch events.
-- Explicit ownership boundary keeps module state and security responsibilities inside owning systems.
-- Browser QA checklist and architecture documentation added.
+- New `provenance/` structured provenance vocabulary and JSON Schema.
+- Browser-local provenance event engine with bounded retention and validation.
+- Trace fields for actor, action, module, target, source, timestamps, context, evidence references, and integrity state.
+- Command and module-action provenance capture.
+- Platform/session/discovery/knowledge/profile/progress/portfolio activity capture.
+- Dedicated Provenance inspection surface at `/provenance/`.
+- Platform Registry and Integration updated for global provenance loading.
+- Explicit distinction between local traceability and authoritative server-side audit evidence.
+- Browser QA checklist and architecture documentation.
 
 ## Research Integrity Principle
 
@@ -65,8 +65,9 @@ The site should feel like an interdisciplinary research institution and engineer
 - V1.0.8 — GEI Unified Activity Timeline & Journey Layer
 - V1.0.9 — GEI Unified Search & Command Layer
 - V1.0.10 — GEI Command Orchestration & Cross-System Action Layer
-- **V1.0.11 — GEI Module Action Adapter Layer (current)**
+- V1.0.11 — GEI Module Action Adapter Layer
+- **V1.0.12 — GEI Provenance Intelligence & Audit Trail Layer (current)**
 
 ## Next
 
-**V1.0.12 — GEI Provenance Intelligence & Audit Trail Layer** should strengthen traceability around platform actions and research-facing records while preserving the distinction between browser-local presentation history and authoritative server-side audit evidence.
+**V1.0.13 — GEI Provenance Verification & Integrity Intelligence Layer** should extend provenance records with stronger verification-state modeling, integrity checks, and reviewable audit transitions without treating browser-local state as authoritative.
